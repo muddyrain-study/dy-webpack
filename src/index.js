@@ -1,2 +1,3 @@
-require("./a");
-console.log("hello webpack");
+import obj from "./commonjsa";
+
+console.log(obj);
