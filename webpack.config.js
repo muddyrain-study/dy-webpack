@@ -4,14 +4,17 @@ const path = require("path");
  */
 module.exports = {
   mode: "development",
-  entry: {
-    main: "./src/index.js",
-    a: ["./src/a.js", "./src/index.js"],
+  module: {
+    // 模块的匹配规则
+    rules: [
+      {
+        test: /index\.js$/,
+        use: ["./loaders/loader1", "./loaders/loader2"],
+      },
+      {
+        test: /\.js$/,
+        use: ["./loaders/loader3", "./loaders/loader4"],
+      },
+    ],
   },
-  output: {
-    filename: "[name]-[chunkhash:5].js",
-    // 必须配置一个绝对路径
-    path: path.resolve(__dirname, "dist"),
-  },
-  devtool: "eval",
 };
