@@ -1,3 +1,4 @@
-var obj = null;
-obj.abc();
-console.log("a ----");
+require("./b");
+console.log("aaaa");
+
+module.exports = "a";

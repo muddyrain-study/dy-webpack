@@ -1,2 +1,1 @@
-require("./a");
-console.log("index module----");
+console.log("index");
