@@ -1,3 +1,4 @@
+var MyPlugins = require("./plugins/my-plugin");
 const path = require("path");
 /**
  * @type {import('webpack').Configuration}
@@ -21,4 +22,5 @@ module.exports = {
       },
     ],
   },
+  plugins: [new MyPlugins("哈哈哈哈1.txt")],
 };
