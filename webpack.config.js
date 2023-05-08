@@ -8,8 +8,16 @@ module.exports = {
     // 模块的匹配规则
     rules: [
       {
-        test: /\.css$/,
-        use: ["./loaders/style-loader"],
+        test: /\.(jpg)|(png)|(jpeg)|(gif)$/,
+        use: [
+          {
+            loader: "./loaders/img-loader",
+            options: {
+              limit: 50000,
+              filename: "img-[contenthash:5].[ext]",
+            },
+          },
+        ],
       },
     ],
   },

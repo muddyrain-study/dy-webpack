@@ -19,11 +19,11 @@
   },
   "homepage": "https://github.com/muddyrain-study/duyi-webpack#readme",
   "devDependencies": {
-    "loader-utils": "^1.4.2",
     "webpack": "^5.82.0",
     "webpack-cli": "^5.0.2"
   },
   "dependencies": {
-    "jquery": "^3.6.4"
+    "jquery": "^3.6.4",
+    "loader-utils": "^3.2.1"
   }
 }
