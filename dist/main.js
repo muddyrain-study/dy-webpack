@@ -9,33 +9,23 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/assets/index.css":
+/*!******************************!*\
+  !*** ./src/assets/index.css ***!
+  \******************************/
+/***/ ((module) => {
+
+eval("\n  var style = document.createElement(\"style\");\n  style.innerHTML = `body {\r\n  background: rgb(61, 255, 2);\r\n  color: #fff;\r\n}\r\n`;\n  document.head.appendChild(style); \n  module.exports = `body {\r\n  background: rgb(61, 255, 2);\r\n  color: #fff;\r\n}\r\n`\n  \n\n//# sourceURL=webpack://duyi-webpack/./src/assets/index.css?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("__webpack_require__(/*! ./a */ \"./src/a.js\");\r\n\n\n//# sourceURL=webpack://duyi-webpack/./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/a.js":
-/*!******************!*\
-  !*** ./src/a.js ***!
-  \******************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-eval("__webpack_require__(/*! ./b */ \"./src/b.js\");\r\nconsole.log(\"aaaa\");\r\n\r\nmodule.exports = \"a\";\r\n\n\n//# sourceURL=webpack://duyi-webpack/./src/a.js?");
-
-/***/ }),
-
-/***/ "./src/b.js":
-/*!******************!*\
-  !*** ./src/b.js ***!
-  \******************/
-/***/ ((module) => {
-
-eval("console.log(\"b\");\r\n\r\nmodule.exports = \"b\";\r\n\n\n//# sourceURL=webpack://duyi-webpack/./src/b.js?");
+eval("var code = __webpack_require__(/*! ./assets/index.css */ \"./src/assets/index.css\");\r\n\r\nconsole.log(\"code\", code);\r\n\n\n//# sourceURL=webpack://duyi-webpack/./src/index.js?");
 
 /***/ })
 

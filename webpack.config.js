@@ -8,12 +8,8 @@ module.exports = {
     // 模块的匹配规则
     rules: [
       {
-        test: /index\.js$/,
-        use: ["./loaders/loader1", "./loaders/loader2"],
-      },
-      {
-        test: /\.js$/,
-        use: ["./loaders/loader3", "./loaders/loader4"],
+        test: /\.css$/,
+        use: ["./loaders/style-loader"],
       },
     ],
   },
