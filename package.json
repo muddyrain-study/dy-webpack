@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx webpack --mode=development --watch",
-    "build": "npx webpack --mode=production"
+    "dev": "npx webpack --watch --env dev",
+    "build": "npx webpack --env prod"
   },
   "repository": {
     "type": "git",
