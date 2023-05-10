@@ -1,1 +1,1 @@
-require("jquery");
+console.log(12345);
