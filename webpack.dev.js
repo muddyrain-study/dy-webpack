@@ -3,7 +3,7 @@
  */
 const config = {
   mode: "development",
-  devtool: "source-map",
+  devtool: "eval-source-map",
 };
 
 module.exports = config;

@@ -1,1 +1,1 @@
-console.log("11");
+require("jquery");
