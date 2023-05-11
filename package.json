@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx webpack --watch --env dev",
+    "dev": "npx webpack-dev-server --env dev",
     "build": "npx webpack --env prod"
   },
   "repository": {
@@ -27,6 +27,7 @@
     "copy-webpack-plugin": "^11.0.0",
     "html-webpack-plugin": "^5.5.1",
     "jquery": "^3.6.4",
-    "loader-utils": "^3.2.1"
+    "loader-utils": "^3.2.1",
+    "webpack-dev-server": "^4.15.0"
   }
 }

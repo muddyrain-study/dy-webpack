@@ -1,1 +1,0 @@
-var webpack;console.log(12345),webpack={};
