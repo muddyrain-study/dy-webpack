@@ -54,5 +54,10 @@ module.exports = {
       options: {},
     }),
   ],
+  devServer: {
+    port: 8000,
+    open: true,
+    proxy: {},
+  },
   // context: path.resolve(__dirname, "src"),
 };
