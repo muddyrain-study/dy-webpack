@@ -1,3 +1,5 @@
-console.log(1234115);
-
-fetch("http://developer.duyiedu.com//api/student/findAll");
+const jpg = require("./assets/1.jpg");
+var img = document.createElement("img");
+console.log(jpg);
+img.src = jpg.default;
+document.body.appendChild(img);

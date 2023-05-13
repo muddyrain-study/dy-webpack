@@ -33,6 +33,14 @@ module.exports = {
     hash: false,
     builtAt: true,
   },
+  module: {
+    rules: [
+      {
+        test: /\.(png)|(gif)|(jpg)$/,
+        use: ["file-loader"],
+      },
+    ],
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
