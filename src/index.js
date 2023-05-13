@@ -1,4 +1,4 @@
-const jpg = require("./assets/1.jpg");
+const jpg = require("./assets/webpack.jpg");
 var img = document.createElement("img");
 console.log(jpg);
 img.src = jpg.default;

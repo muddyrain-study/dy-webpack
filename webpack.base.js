@@ -37,7 +37,24 @@ module.exports = {
     rules: [
       {
         test: /\.(png)|(gif)|(jpg)$/,
-        use: ["file-loader"],
+        use: [
+          // {
+          //   loader: "file-loader",
+          //   options: {
+          //     name: "[name]-[hash:5].[ext]",
+          //   },
+          // },
+          {
+            loader: "url-loader",
+            options: {
+              // 不限制大小
+              // limit: false,
+              // 文件不超过 100 * 1024 则使用 base64
+              limit: 1 * 1024,
+              name: "[name]-[hash:5].[ext]",
+            },
+          },
+        ],
       },
     ],
   },
@@ -49,16 +66,14 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "./public"),
-          to: "./",
-          globOptions: {
-            dot: true,
-            gitignore: true,
-            ignore: ["**/index.html"],
-          },
+          noErrorOnMissing: false, // 默认false，不会对丢失的文件产生错误
+          force: false, // 默认false，覆盖已经存在的文件
+          priority: 0, // 允许指定复制具有相同目标名称的文件的优先级
+          from: path.resolve(__dirname, "public/assets"), // 拷贝来源
+          to: path.resolve(__dirname, "dist/assets"), // 拷贝到的位置
+          toType: "dir", // 目录dir、文件file或模板template
         },
       ],
-
       options: {},
     }),
   ],
