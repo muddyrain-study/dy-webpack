@@ -1,0 +1,8 @@
+@import url("./pager");
+.red {
+  color: red;
+  background: url("./webpack.jpg");
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+}

@@ -36,14 +36,12 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
         test: /\.(png)|(gif)|(jpg)$/,
         use: [
-          // {
-          //   loader: "file-loader",
-          //   options: {
-          //     name: "[name]-[hash:5].[ext]",
-          //   },
-          // },
           {
             loader: "url-loader",
             options: {
@@ -51,10 +49,12 @@ module.exports = {
               // limit: false,
               // 文件不超过 100 * 1024 则使用 base64
               limit: 1 * 1024,
+              esModule: false,
               name: "[name]-[hash:5].[ext]",
             },
           },
         ],
+        type: "javascript/auto",
       },
     ],
   },
@@ -66,12 +66,10 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          noErrorOnMissing: false, // 默认false，不会对丢失的文件产生错误
-          force: false, // 默认false，覆盖已经存在的文件
-          priority: 0, // 允许指定复制具有相同目标名称的文件的优先级
           from: path.resolve(__dirname, "public/assets"), // 拷贝来源
           to: path.resolve(__dirname, "dist/assets"), // 拷贝到的位置
-          toType: "dir", // 目录dir、文件file或模板template
+          // 没有错误丢失
+          noErrorOnMissing: true,
         },
       ],
       options: {},
