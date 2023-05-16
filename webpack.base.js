@@ -36,16 +36,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(css)|(less)$/,
+        test: /\.(css)|(less)|(pcss)$/,
         use: [
           'style-loader',
           {
             loader: 'css-loader',
-            options: {
-              modules: true,
-            },
+            options: {},
           },
           'less-loader',
+          'postcss-loader',
         ],
       },
       {

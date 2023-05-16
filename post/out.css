@@ -1,3 +1,8 @@
-body {
-  background: #f44444;
+:root{
+  --danger-color : #f40;
+}
+
+.danger{
+  color:#f40;
+  color:var(--danger-color)
 }
