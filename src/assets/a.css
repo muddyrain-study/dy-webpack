@@ -1,0 +1,11 @@
+@import url('./b.css');
+
+.a {
+  color: yellow;
+}
+
+:global {
+  body {
+    background: url('./webpack.jpg');
+  }
+}

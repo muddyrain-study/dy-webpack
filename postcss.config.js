@@ -8,7 +8,6 @@ const config = {
     },
     'postcss-apply': {},
     'postcss-color-function': {},
-    stylelint: {},
   },
 }
 

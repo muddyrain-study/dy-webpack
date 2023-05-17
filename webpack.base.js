@@ -1,6 +1,8 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const devMode = process.env.NODE_ENV !== 'production'
 const path = require('path')
 /**
  * @type {import("webpack").Configuration}
@@ -38,11 +40,11 @@ module.exports = {
       {
         test: /\.(css)|(less)|(pcss)$/,
         use: [
-          'style-loader',
+          devMode ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
-              // modules: true,
+              modules: true,
             },
           },
           'less-loader',
@@ -69,6 +71,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:5].css',
+    }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
