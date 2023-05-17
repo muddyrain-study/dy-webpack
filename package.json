@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/muddyrain-study/duyi-webpack#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "postcss": "^8.4.23",
     "postcss-cli": "^10.1.0",
     "postcss-custom-properties": "^13.1.5",
