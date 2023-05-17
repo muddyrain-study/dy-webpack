@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npx webpack-dev-server --env dev",
     "build": "npx webpack --env prod",
-    "postcss": "postcss ./src/assets/post.pcss -o post/out.css -w"
+    "postcss": "postcss ./src/assets/post.pcss -o post/out.css -w",
+    "babel": "babel ./src/babel -d dist -w"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,10 @@
   },
   "homepage": "https://github.com/muddyrain-study/duyi-webpack#readme",
   "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.21.5",
     "babel-cli": "^6.26.0",
     "postcss": "^8.4.23",
     "postcss-cli": "^10.1.0",
