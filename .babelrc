@@ -3,9 +3,16 @@
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": "usage"
+        "useBuiltIns": "usage",
+        "corejs": 3
       }
     ]
   ],
-  "plugins": []
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-function-bind",
+    "@babel/plugin-proposal-optional-chaining",
+    "@babel/plugin-transform-runtime",
+    "babel-plugin-transform-remove-console"
+  ]
 }
