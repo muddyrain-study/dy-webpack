@@ -1,9 +1,9 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const devMode = process.env.NODE_ENV !== 'production'
-const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const devMode = process.env.NODE_ENV !== 'production';
+const path = require('path');
 /**
  * @type {import("webpack").Configuration}
  */
@@ -37,6 +37,17 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            // plugins: ['babel-plugin-transform-remove-console'],
+          },
+        },
+      },
       {
         test: /\.(css)|(less)|(pcss)$/,
         use: [
@@ -96,4 +107,4 @@ module.exports = {
     proxy: {},
   },
   // context: path.resolve(__dirname, "src"),
-}
+};
