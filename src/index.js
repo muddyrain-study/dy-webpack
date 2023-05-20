@@ -9,4 +9,11 @@ const func = () => {
 
 func();
 
-console.log(11);
+console.log(module);
+
+if (module.hot) {
+  // 是否开启了热更新
+  module.hot.accept(); // 接受热更新
+}
+
+console.log(3);
