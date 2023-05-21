@@ -13,7 +13,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     main: './src/index.js',
-    other: './src/other.js',
+    // other: './src/other.js',
   },
   output: {
     path: path.resolve(__dirname, './dist/'),
