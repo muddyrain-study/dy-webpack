@@ -9,7 +9,10 @@ const webpack = require('webpack');
  * @type {import("webpack").Configuration}
  */
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    other: './src/other.js',
+  },
   output: {
     path: path.resolve(__dirname, './dist/'),
     filename: 'js/[name]-[chunkhash:5].js',
@@ -28,7 +31,7 @@ module.exports = {
     },
   },
   externals: {
-    jquery: '$',
+    // jquery: '$',
   },
   stats: {
     colors: true,
@@ -63,9 +66,7 @@ module.exports = {
           devMode ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
-            options: {
-              modules: true,
-            },
+            options: {},
           },
           'less-loader',
           'postcss-loader',
@@ -93,10 +94,16 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:5].css',
+      chunkFilename: 'common.[hash:5].css',
     }),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      // 要清除的文件或目录
+      // 排除掉dll目录本身和它里面的文件
+      cleanOnceBeforeBuildPatterns: ['**/*', '!dll', '!dll/*'],
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
+      chunks: ['index'],
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -109,13 +116,34 @@ module.exports = {
       ],
       options: {},
     }),
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
+    // 使用手动分包
+    // new webpack.DllReferencePlugin({
+    //   manifest: require('./dll/jquery.manifest.json'),
+    // }),
+    // new webpack.DllReferencePlugin({
+    //   manifest: require('./dll/lodash.manifest.json'),
+    // }),
   ],
   devServer: {
     port: 8000,
     open: true,
     hot: true,
     proxy: {},
+  },
+  optimization: {
+    // 分包策略
+    splitChunks: {
+      chunks: 'all',
+      //全局配置
+      cacheGroups: {
+        styles: {
+          minSize: 0,
+          test: /\.css$/,
+          minChunks: 2,
+        },
+      },
+    },
   },
   // context: path.resolve(__dirname, "src"),
 };

@@ -1,8 +1,9 @@
-import $ from 'jquery';
 import _ from 'lodash';
+
+import $ from 'jquery';
 import common from './common.js';
 const result = _.isArray($('.red'));
 import './common.css';
-import './index.css';
-console.log('index', common);
-console.log('index', result);
+import './other.css';
+console.log('other', common);
+console.log('other', result);
