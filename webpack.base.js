@@ -4,9 +4,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const globAll = require('glob-all');
 const paths = globAll.sync([
   // path.resolve(__dirname + '/src/**/*.js'),
@@ -102,6 +104,12 @@ module.exports = {
     ],
   },
   plugins: [
+    new CompressionWebpackPlugin({
+      filename: '[file].gz',
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+    }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:5].css',
       chunkFilename: 'common.[hash:5].css',
