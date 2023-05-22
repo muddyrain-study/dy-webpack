@@ -9,7 +9,7 @@ const webpack = require('webpack');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const globAll = require('glob-all');
 const paths = globAll.sync([
-  path.resolve(__dirname + '/src/**/*.js'),
+  // path.resolve(__dirname + '/src/**/*.js'),
   path.resolve(__dirname + '/public/index.html'),
 ]);
 console.log(paths);
