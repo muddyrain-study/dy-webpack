@@ -3,10 +3,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const devMode = process.env.NODE_ENV !== 'production';
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const globAll = require('glob-all');
+const paths = globAll.sync([
+  path.resolve(__dirname + '/src/**/*.js'),
+  path.resolve(__dirname + '/public/index.html'),
+]);
+console.log(paths);
+const devMode = process.env.NODE_ENV !== 'production';
+
 /**
  * @type {import("webpack").Configuration}
  */
@@ -97,6 +105,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:5].css',
       chunkFilename: 'common.[hash:5].css',
+    }),
+    new PurgeCSSPlugin({
+      paths: paths,
     }),
     new CleanWebpackPlugin({
       // 要清除的文件或目录

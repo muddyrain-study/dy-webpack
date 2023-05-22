@@ -1,4 +1,4 @@
-import { chunk } from 'lodash-es';
+import { chunk } from 'lodash';
 export function add(a, b) {
   console.log('add');
   return a + b;
